@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nossa Jornada</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%237ee8fa' d='M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       TELA 1 — CAPA
+       ══════════════════════════════════════════ -->
+  <section class="tela" id="tela-1" data-audio="../audio/musica1.mp3" data-theme="capa">
+    <div class="capa-bg" style="background-image: url('../assets/fotos/capa.jpeg')"></div>
+    <nav class="capa-nav anim-fade-in delay-1">
+      <span class="capa-logo">Nossa Jornada</span>
+    </nav>
+    <div class="capa-conteudo">
+      <div class="badge capa-badge anim-fade-up delay-1">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13">
+          <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+          <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
+        </svg>
+      </div>
+      <h1 class="titulo-display capa-titulo anim-fade-up delay-2">
+        Nossa História:<br><em>Os dias mais especiais<br>do ano.</em>
+      </h1>
+      <p class="corpo capa-subtexto anim-fade-up delay-3">
+        Prepare os fones de ouvido e clique abaixo para iniciar.
+      </p>
+      <button class="btn-principal capa-btn anim-fade-up delay-4" id="btn-iniciar">
+        Iniciar Nossa Retrospectiva
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+          <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <polygon points="10,8 16,12 10,16"/>
+        </svg>
+      </button>
+    </div>
+    <button class="btn-avancar anim-fade-in delay-5">AVANÇAR →</button>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       TELA 2 — ELOGIOS
+       ══════════════════════════════════════════ -->
+  <section class="tela" id="tela-2" data-audio="../audio/sorriso.m4a" data-theme="elogios">
+    <canvas class="elogios-canvas" id="elogios-canvas"></canvas>
+    <h2 class="titulo-display elogios-titulo anim-fade-up delay-1">
+      Detalhes que admiro da<br><em>minha oração mais bonita:</em>
+    </h2>
+    <div class="elogios-cards anim-fade-up delay-2">
+      <div class="elogio-card card-sorriso" data-popup="popup-sorriso">
+        <div class="card-brilho"></div>
+        <span class="card-emoji">☀️</span>
+        <span class="elogio-nome">Seu Sorriso</span>
+        <span class="elogio-label">CLIQUE-ME ✦</span>
+      </div>
+      <div class="elogio-card card-olhar" data-popup="popup-olhar">
+        <div class="card-brilho"></div>
+        <span class="card-emoji">✨</span>
+        <span class="elogio-nome">Seu Olhar</span>
+        <span class="elogio-label">CLIQUE-ME ✦</span>
+      </div>
+      <div class="elogio-card card-determinacao" data-popup="popup-determinacao">
+        <div class="card-brilho"></div>
+        <span class="card-emoji">🔥</span>
+        <span class="elogio-nome">Sua Determinação</span>
+        <span class="elogio-label">CLIQUE-ME ✦</span>
+      </div>
+    </div>
+    <div class="elogios-continue anim-fade-in delay-5">
+      <span>Continue deslizando</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </div>
+    <button class="btn-avancar anim-fade-in delay-5">AVANÇAR →</button>
+  </section>
+
+  <!-- POPUPS — Elogios -->
+  <div class="popup-overlay" id="popup-sorriso">
+    <div class="popup-card popup-card--amarelo">
+      <button class="popup-fechar" data-close>✕</button>
+      <div class="popup-foto-wrap">
+        <img src="../assets/fotos/sorriso.jpeg" alt="Seu Sorriso" class="popup-foto" />
+      </div>
+      <h3 class="popup-titulo">Seu Sorriso</h3>
+      <p class="popup-texto">É o amanhecer que ilumina meus dias mais escuros. Não existe nada mais contagiante e doce no mundo inteiro.</p>
+    </div>
+  </div>
+  <div class="popup-overlay" id="popup-olhar">
+    <div class="popup-card popup-card--azul">
+      <button class="popup-fechar" data-close>✕</button>
+      <div class="popup-foto-wrap">
+        <img src="../assets/fotos/olhar.jpeg" alt="Seu Olhar" class="popup-foto" />
+      </div>
+      <h3 class="popup-titulo">Seu Olhar</h3>
+      <p class="popup-texto">Tem um olhar que fala mais do que mil palavras. Quando você me olha, eu sinto que sou visto de verdade.</p>
+    </div>
+  </div>
+  <div class="popup-overlay" id="popup-determinacao">
+    <div class="popup-card popup-card--rosa">
+      <button class="popup-fechar" data-close>✕</button>
+      <div class="popup-foto-wrap">
+        <img src="../assets/fotos/determinacao.jpeg" alt="Sua Determinação" class="popup-foto" />
+      </div>
+      <h3 class="popup-titulo">Sua Determinação</h3>
+      <p class="popup-texto">A forma como você vai atrás do que quer, sem desistir, me inspira todos os dias. Essa força é uma das coisas mais bonitas que já vi.</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       TELA 3 — INTRO ESTELAR
+       ══════════════════════════════════════════ -->
+  <section class="tela" id="tela-3" data-audio="../audio/musica3.mp3" data-theme="estelar">
+    <canvas class="estrelas-canvas" id="estrelas-canvas"></canvas>
+    <nav class="estelar-nav anim-fade-in delay-1">
+      <span class="capa-logo">Nossa Jornada</span>
+      <span class="estelar-playing">▲ PLAYING: INTERSTELLAR</span>
+    </nav>
+    <div class="estelar-frase anim-fade-up delay-2">
+      <p id="frase-estelar">
+        "Aqui estão fotos do espaço profundo tiradas pela NASA em dias que mudaram o meu mundo para sempre..."
+      </p>
+      <div class="estelar-dots anim-fade-in delay-4">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <button class="btn-avancar anim-fade-in delay-5">Avançar →</button>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       TELA 4 — MOMENTOS
+       ══════════════════════════════════════════ -->
+  <section class="tela" id="tela-4" data-audio="../audio/nasa.m4a" data-theme="momentos">
+    <div class="momentos-track" id="momentos-track">
+
+      <!-- Momento 1 — overlay cyan na primeira foto -->
+      <div class="momento-slide momento-slide--cyan" style="background-image: url('../assets/fotos/momento1.jpg')">
+        <div class="momento-overlay"></div>
+        <p class="momento-texto anim-fade-up delay-2">Nossa primeira<br><em>mensagem</em></p>
+        <p class="momento-subtexto">Olhando para trás, ir morar na Lua parecia uma opção bem menos assustadora.</p>
+      </div>
+
+      <!-- Momento 2 -->
+      <div class="momento-slide" style="background-image: url('../assets/fotos/momento2.jpg')">
+        <div class="momento-overlay"></div>
+        <p class="momento-texto">Nosso primeiro<br><em>beijo</em></p>
+        <p class="momento-subtexto">O momento exato em que a gravidade nos puxou para o primeiro beijo.</p>
+      </div>
+
+      <!-- Momento 3 -->
+      <div class="momento-slide" style="background-image: url('../assets/fotos/momento3.jpg')">
+        <div class="momento-overlay"></div>
+        <p class="momento-texto">Nosso pedido<br><em>de namoro</em></p>
+        <p class="momento-subtexto">O dia em que o universo inteiro testemunhou o início do nosso "para sempre".</p>
+      </div>
+
+    </div>
+    <button class="momento-seta momento-seta--esq" id="momento-prev" aria-label="Anterior">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="22" height="22">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+    <button class="momento-seta momento-seta--dir" id="momento-next" aria-label="Próximo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="22" height="22">
+        <polyline points="9 6 15 12 9 18"></polyline>
+      </svg>
+    </button>
+    <div class="momento-indicadores" id="momento-indicadores">
+      <span class="momento-dot ativo"></span>
+      <span class="momento-dot"></span>
+      <span class="momento-dot"></span>
+    </div>
+    <button class="btn-avancar anim-fade-in delay-5">Avançar →</button>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       TELA 5 — PLAYLISTS
+       ══════════════════════════════════════════ -->
+  <section class="tela" id="tela-5" data-audio="../audio/play.m4a" data-theme="playlists">
+    <canvas class="playlist-canvas" id="playlist-canvas"></canvas>
+    <nav class="playlist-nav anim-fade-in delay-1">
+      <span class="capa-logo">Nossa Jornada</span>
+      <div class="playlist-now-playing anim-fade-in delay-2">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14">
+          <path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>
+        </svg>
+        <span>PLAYING: NOSSA TRILHA</span>
+        <div class="playlist-bars">
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+    </nav>
+    <div class="playlist-header anim-fade-up delay-1">
+      <span class="playlist-volume">VOLUME 03</span>
+      <h2 class="titulo-display playlist-titulo">
+        As músicas que foram a<br><em>nossa trilha sonora.</em>
+      </h2>
+      <p class="playlist-quote">"Sempre que escuto essa, lembro de nós dois..."</p>
+    </div>
+    <div class="playlist-cards anim-fade-up delay-3">
+
+      <div class="playlist-card" data-popup="popup-playlist">
+        <div class="playlist-card-icon" style="background:linear-gradient(135deg,#7c3aed,#a855f7)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" width="22" height="22">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+        </div>
+        <div class="playlist-card-info">
+          <h3>Músicas Dedicatórias</h3>
+          <p>Cada letra parece ter sido escrita pensando no que sinto por você.</p>
+        </div>
+        <div class="playlist-card-arrow">→</div>
+      </div>
+
+      <div class="playlist-card" data-popup="popup-playlist">
+        <div class="playlist-card-icon" style="background:linear-gradient(135deg,#0ea5e9,#06b6d4)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" width="22" height="22">
+            <circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/>
+          </svg>
+        </div>
+        <div class="playlist-card-info">
+          <h3>Músicas para Conhecer</h3>
+          <p>Novas melodias para criarmos memórias inéditas juntos.</p>
+        </div>
+        <div class="playlist-card-arrow">→</div>
+      </div>
+
+      <div class="playlist-card" data-popup="popup-playlist">
+        <div class="playlist-card-icon" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" width="22" height="22">
+            <path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>
+          </svg>
+        </div>
+        <div class="playlist-card-info">
+          <h3>Músicas que Lembram Nós</h3>
+          <p>A trilha sonora dos nossos momentos mais inesquecíveis.</p>
+        </div>
+        <div class="playlist-card-arrow">→</div>
+      </div>
+
+    </div>
+    <div class="playlist-continue anim-fade-in delay-5">
+      <span>CONTINUE</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </div>
+    <div class="playlist-visualizer anim-fade-in delay-5">
+      <div class="viz-bars" id="viz-bars"></div>
+    </div>
+    <button class="btn-avancar anim-fade-in delay-5">Avançar →</button>
+  </section>
+
+  <!-- POPUP — Playlists (único para os 3 cards) -->
+  <div class="popup-overlay" id="popup-playlist">
+    <div class="popup-playlist-card">
+      <div class="ppc-top" style="background:linear-gradient(135deg,#7c3aed,#06b6d4)">
+        <svg viewBox="0 0 24 24" width="48" height="48" fill="white">
+          <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+        </svg>
+        <button class="popup-fechar ppc-fechar" data-close>✕</button>
+      </div>
+      <div class="ppc-body">
+        <h3>Guarda a curiosidade! ❤️</h3>
+        <p>Montei essa trilha sonora a dedo para nós dois, mas vou te liberar o link oficial só no final da nossa jornada para você não perder nenhuma surpresa. Continue avançando!</p>
+        <button class="ppc-btn-combinado" data-close>Combinado, quero ver o resto!</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- POPUP — Playlists (spotify links) -->
+  <div class="popup-overlay" id="popup-playlist-1">
+    <div class="popup-playlist-card">
+      <div class="ppc-top" style="background: linear-gradient(135deg,#7c3aed,#a855f7)">
+        <svg viewBox="0 0 24 24" width="48" height="48" fill="white">
+          <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+        </svg>
+        <button class="popup-fechar ppc-fechar" data-close>✕</button>
+      </div>
+      <div class="ppc-body">
+        <h3>Abrir no Spotify?</h3>
+        <p>Você será direcionado para o Spotify.</p>
+        <span class="ppc-hint">se for a primeira vez não clica pra ir maria paula.</span>
+        <!-- ↓ SUBSTITUA O HREF PELO LINK DA SUA PLAYLIST -->
+        <a href="https://open.spotify.com/playlist/0mvEwjAjcv1n0x7vCwNvMi?si=c43af4944ba04778" target="_blank" class="ppc-btn-spotify">
+          Sim, vamos lá
+        </a>
+        <button class="ppc-btn-later" data-close>Ver mais tarde</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="popup-playlist-2">
+    <div class="popup-playlist-card">
+      <div class="ppc-top" style="background: linear-gradient(135deg,#0ea5e9,#06b6d4)">
+        <svg viewBox="0 0 24 24" width="48" height="48" fill="white">
+          <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+        </svg>
+        <button class="popup-fechar ppc-fechar" data-close>✕</button>
+      </div>
+      <div class="ppc-body">
+        <h3>Abrir no Spotify?</h3>
+        <p>Você será direcionado para o Spotify.</p>
+        <span class="ppc-hint">se for a primeira vez não clica pra ir maria paula.</span>
+        <a href="https://open.spotify.com/playlist/1hnXPPCqgwn978NoU08pC8?si=645342d5600448b5" target="_blank" class="ppc-btn-spotify">  
+          Sim, vamos lá
+        </a>
+        <button class="ppc-btn-later" data-close>Ver mais tarde</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="popup-playlist-3">
+    <div class="popup-playlist-card">
+      <div class="ppc-top" style="background: linear-gradient(135deg,#f59e0b,#ef4444)">
+        <svg viewBox="0 0 24 24" width="48" height="48" fill="white">
+          <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+        </svg>
+        <button class="popup-fechar ppc-fechar" data-close>✕</button>
+      </div>
+      <div class="ppc-body">
+        <h3>Abrir no Spotify?</h3>
+        <p>Você será direcionado para o Spotify.</p>
+        <span class="ppc-hint">se for a primeira vez não clica pra ir maria paula.</span>
+        <a href="https://open.spotify.com/playlist/4MElAvd2ucyMvAW0s9FCZ8?si=bc92881a285c4f21" target="_blank" class="ppc-btn-spotify">
+          Sim, vamos lá
+        </a>
+        <button class="ppc-btn-later" data-close>Ver mais tarde</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TELA 6: Grand Finale -->
+  <section class="tela" id="tela-6" data-audio="../audio/bala.m4a" data-theme="finale">
+    <canvas class="finale-canvas" id="finale-canvas"></canvas>
+    <div class="finale-titulo anim-fade-up delay-1">
+      <h2 class="titulo-display">
+        Você desbloqueou<br><em>3 cupons especiais.</em>
+      </h2>
+    </div>
+    <p class="finale-subtexto anim-fade-up delay-2">Resgate agora e aproveite quando quiser.</p>
+    <div class="finale-vales anim-fade-up delay-2">
+      <div class="ticket-wrapper">
+        <div class="ticket-holes ticket-holes-left">
+          <span></span><span></span><span></span><span></span>
+        </div>
+        <div class="vale-card">
+          <div class="ticket-top">
+            <span class="ticket-icon">🍽️</span>
+          </div>
+          <div class="ticket-divider"></div>
+          <h3 class="ticket-title">Vale 1</h3>
+          <button class="vale-btn" data-vale="jantar">Resgatar Cupom</button>
+        </div>
+        <div class="ticket-holes ticket-holes-right">
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+
+      <div class="ticket-wrapper">
+        <div class="ticket-holes ticket-holes-left">
+          <span></span><span></span><span></span><span></span>
+        </div>
+        <div class="vale-card">
+          <div class="ticket-top">
+            <span class="ticket-icon">🎬</span>
+          </div>
+          <div class="ticket-divider"></div>
+          <h3 class="ticket-title">Vale 2</h3>
+        
+          <button class="vale-btn" data-vale="filmes">Resgatar Cupom</button>
+        </div>
+        <div class="ticket-holes ticket-holes-right">
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+
+      <div class="ticket-wrapper">
+        <div class="ticket-holes ticket-holes-left">
+          <span></span><span></span><span></span><span></span>
+        </div>
+        <div class="vale-card">
+          <div class="ticket-top">
+            <span class="ticket-icon">✨</span>
+          </div>
+          <div class="ticket-divider"></div>
+          <h3 class="ticket-title">Vale 3</h3>
+          <button class="vale-btn" data-vale="massagem">Resgatar Cupom</button>
+        </div>
+        <div class="ticket-holes ticket-holes-right">
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+    <p class="finale-amor anim-fade-in delay-4">
+      <em>Com todo o meu amor.</em>
+    </p>
+    <div class="finale-dots anim-fade-in delay-5">
+      <span></span><span></span><span></span>
+    </div>
+    <button class="btn-avancar anim-fade-in delay-5">Recomeçar ↻</button>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       TELA 7 — VÍDEO + FOTO FINAL
+       ══════════════════════════════════════════ -->
+  <section class="tela" id="tela-7" data-audio="../audio/sonha.m4a" data-theme="finale">
+
+    <!-- ── FASE 1: Container do Vídeo ── -->
+    <div class="finale-video-container" id="finale-video-container">
+      <video id="finale-video" class="finale-video"
+             src="../assets/videos/finale.mp4"
+             autoplay muted playsinline></video>
+    </div>
+
+    <!-- ── FASE 2: Container da Foto + Mensagem ── -->
+    <div class="finale-foto-container" id="finale-foto-container">
+      <div class="finale-foto-bg" style="background-image: url('../assets/fotos/final.png')"></div>
+      <div class="finale-foto-overlay"></div>
+      <div class="finale-foto-conteudo">
+        
+        <!-- Título no topo -->
+        <h2 class="finale-foto-titulo">Meu amor.</h2>
+        
+        <!-- Mensagem longa -->
+        <div class="finale-mensagem-box">
+          <p class="finale-mensagem-texto">
+            Você sempre achou que este toque na testa fosse somente um "eu te amo", mas na verdade ele também significa um "eu sempre irei voltar". 
+            <br><br>
+            Quero que não se preocupe com todo esse tempo que ficaremos longe, porque vou te viver todo dia lá. Você foi a oração mais bonita que Deus me presenteou e agradeço a Ele todos os dias. 
+            <br><br>
+            Nenhum fuso horário ou oceano é grande o suficiente para apagar o que a gente construiu.
+          </p>
+        </div>
+        
+        <!-- Texto "EU TE AMO MARIA PAULA" em rosa -->
+        <div class="finale-amo-text">EU TE AMO<br>MARIA PAULA</div>
+        
+        <!-- Botões -->
+        <div class="finale-foto-btns">
+          <button class="finale-btn-playlist" id="btn-playlist">♫ Escolher Playlist</button>
+          <button class="finale-btn-recomecar" id="btn-recomecar">↻ Recomeçar</button>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- MODAL — Vale Resgatado -->
+  <div class="popup-overlay" id="popup-vale">
+    <div class="vale-modal">
+      <button class="popup-fechar" data-close-vale>✕</button>
+      <div class="vale-modal-top">
+        <span class="vale-modal-icon" id="vale-modal-icon">🍽️</span>
+      </div>
+      <h3 id="vale-modal-titulo">Vale Jantar Resgatado!</h3>
+      <p id="vale-modal-texto">Escolha o restaurante, eu pago.</p>
+      <code class="vale-modal-codigo" id="vale-modal-codigo">VALE-JANTAR-2026</code>
+      <button class="ppc-btn-combinado" data-close-vale>Entendi!</button>
+      <div class="vale-confetti" id="vale-confetti"></div>
+    </div>
+  </div>
+
+  <!-- MODAL — Playlists -->
+  <div class="popup-overlay" id="popup-playlists">
+    <div class="playlists-modal">
+      <button class="popup-fechar" data-close-playlists>✕</button>
+      <h3 class="playlists-titulo">Escolha uma Playlist</h3>
+      <div class="playlists-lista">
+        <a href="https://open.spotify.com/playlist/0mvEwjAjcv1n0x7vCwNvMi?si=29d8a556731e43a7" target="_blank" class="playlist-item" data-close-playlists>
+          <span class="playlist-icon">💌</span>
+          <span class="playlist-nome">Músicas Dedicatórias</span>
+        </a>
+        <a href="https://open.spotify.com/playlist/1hnXPPCqgwn978NoU08pC8?si=7dc89519ba5446e4" target="_blank" class="playlist-item" data-close-playlists>
+          <span class="playlist-icon">💫</span>
+          <span class="playlist-nome">Para Conhecer</span>
+        </a>
+        <a href="https://open.spotify.com/playlist/4MElAvd2ucyMvAW0s9FCZ8?si=4ec9ebed55b440b1" target="_blank" class="playlist-item" data-close-playlists>
+          <span class="playlist-icon">🎵</span>
+          <span class="playlist-nome">Lembram Nos</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <audio id="player" loop preload="auto" crossorigin="anonymous"></audio>
+  <div class="progress-dots" id="progress-dots"></div>
+  <button class="btn-som" id="btn-som" aria-label="Alternar som">
+    <svg id="icon-som-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+      <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+      <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+    </svg>
+    <svg id="icon-som-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+      <line x1="23" y1="9" x2="17" y2="15"></line>
+      <line x1="17" y1="9" x2="23" y2="15"></line>
+    </svg>
+  </button>
+  <script src="main.js"></script>
+</body>
+</html>
